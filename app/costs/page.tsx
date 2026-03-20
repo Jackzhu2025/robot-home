@@ -4,8 +4,13 @@ import { Paywall } from "@/components/user/paywall"
 
 export default function CostsPage() {
   const user = getDemoUser()
+
   if (!isPro(user)) {
-    return <div className="page-wrap"><Paywall /></div>
+    return (
+      <div className="page-wrap">
+        <Paywall />
+      </div>
+    )
   }
 
   const robots = getAllRobots()
@@ -13,6 +18,7 @@ export default function CostsPage() {
   return (
     <div className="page-wrap">
       <h1>机器人价格 / 成本数据库</h1>
+
       <table className="table card">
         <thead>
           <tr>
@@ -27,20 +33,31 @@ export default function CostsPage() {
             <th>毛利判断</th>
           </tr>
         </thead>
+
         <tbody>
-          {robots.map((robot) => (
-            <tr key={robot.id}>
-              <td>{robot.name}<div className="muted">{robot.brand}</div></td>
-              <td>{robot.priceText}</td>
-              <td>${robot.cost.bomUsd.toLocaleString()}</td>
-              <td>${robot.cost.actuatorUsd.toLocaleString()}</td>
-              <td>${robot.cost.batteryUsd.toLocaleString()}</td>
-              <td>${robot.cost.sensorUsd.toLocaleString()}</td>
-              <td>${robot.cost.chipUsd.toLocaleString()}</td>
-              <td>${robot.cost.structureUsd.toLocaleString()}</td>
-              <td>{robot.cost.grossMarginHint}<div className="muted">{robot.cost.note}</div></td>
-            </tr>
-          ))}
+          {robots.map((robot) => {
+            const cost = robot.cost ?? {}
+
+            return (
+              <tr key={robot.id}>
+                <td>
+                  {robot.name}
+                  <div className="muted">{robot.brand}</div>
+                </td>
+                <td>{robot.priceText ?? "-"}</td>
+                <td>{cost.bomUsd != null ? `$${cost.bomUsd.toLocaleString()}` : "-"}</td>
+                <td>{cost.actuatorUsd != null ? `$${cost.actuatorUsd.toLocaleString()}` : "-"}</td>
+                <td>{cost.batteryUsd != null ? `$${cost.batteryUsd.toLocaleString()}` : "-"}</td>
+                <td>{cost.sensorUsd != null ? `$${cost.sensorUsd.toLocaleString()}` : "-"}</td>
+                <td>{cost.chipUsd != null ? `$${cost.chipUsd.toLocaleString()}` : "-"}</td>
+                <td>{cost.structureUsd != null ? `$${cost.structureUsd.toLocaleString()}` : "-"}</td>
+                <td>
+                  {cost.grossMarginHint ?? "-"}
+                  <div className="muted">{cost.note ?? ""}</div>
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>
