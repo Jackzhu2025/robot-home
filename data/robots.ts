@@ -31,218 +31,227 @@ export type Robot = {
   confidence: "high" | "medium" | "low";
 };
 
-export const robots: Robot[] = [{
-  slug: "tesla-optimus",
-  name: "Optimus",
-  company: "Tesla",
-  category: "Humanoid",
-  stage: "Prototype",
+export const robots: Robot[] = [
 
-  summary: "Tesla推出的人形机器人，核心目标是替代重复性劳动，依托自动驾驶与AI能力构建通用机器人平台。",
+  {
+    slug: "tesla-optimus",
+    name: "Optimus",
+    company: "Tesla",
+    category: "Humanoid",
+    stage: "Prototype",
 
-  cover: "/robots/optimus.jpg",
+    summary: "Tesla推出的人形机器人，目标替代重复劳动，依托自动驾驶与AI能力构建通用机器人平台。",
 
-  specs: {
-    height: "173 cm",
-    weight: "73 kg",
-    payload: "20 kg",
-    battery: "2.3 kWh",
-    speed: "5 km/h",
-    dof: "28+"
+    cover: "/robots/optimus.jpg",
+
+    specs: {
+      height: "173 cm",
+      weight: "73 kg",
+      payload: "20 kg",
+      battery: "2.3 kWh",
+      speed: "5 km/h",
+      dof: "28+"
+    },
+
+    scenarios: ["制造业", "仓储", "通用劳动"],
+
+    score: 9.2,
+
+    highlights: [
+      "AI能力强（FSD迁移）",
+      "供应链能力极强",
+      "长期降本潜力大"
+    ],
+
+    risks: [
+      "尚未量产",
+      "真实落地未验证"
+    ],
+
+    competitors: ["Figure 02", "Digit", "Unitree H1"],
+
+    confidence: "medium"
   },
 
-  scenarios: ["制造业", "仓储", "通用劳动"],
+  {
+    slug: "figure-02",
+    name: "Figure 02",
+    company: "Figure AI",
+    category: "Humanoid",
+    stage: "Pilot",
 
-  score: 9.2,
+    summary: "Figure第二代人形机器人，已进入宝马工厂测试，强调AI与工业场景结合。",
 
-  highlights: [
-    "AI能力强（FSD迁移）",
-    "成本控制潜力大",
-    "供应链能力极强"
-  ],
+    cover: "/robots/figure02.jpg",
 
-  risks: [
-    "尚未量产",
-    "真实落地能力未验证"
-  ],
+    specs: {
+      height: "168 cm",
+      weight: "60 kg",
+      payload: "20 kg",
+      speed: "4 km/h"
+    },
 
-  competitors: ["Figure 02", "Digit", "Unitree H1"],
+    scenarios: ["汽车制造", "物流"],
 
-  confidence: "medium"
-}
- {
-  slug: "figure-02",
-  name: "Figure 02",
-  company: "Figure AI",
-  category: "Humanoid",
-  stage: "Pilot",
+    score: 8.8,
 
-  summary: "Figure推出的第二代人形机器人，已进入宝马工厂测试阶段，强调AI与工业场景结合。",
+    highlights: [
+      "宝马合作验证",
+      "AI能力领先",
+      "商业路径清晰"
+    ],
 
-  cover: "/robots/figure02.jpg",
+    risks: [
+      "成本较高",
+      "规模化未验证"
+    ],
 
-  specs: {
-    height: "168 cm",
-    weight: "60 kg",
-    payload: "20 kg",
-    speed: "4 km/h"
+    competitors: ["Optimus", "Digit"],
+
+    confidence: "medium"
   },
 
-  scenarios: ["汽车制造", "物流"],
+  {
+    slug: "unitree-g1",
+    name: "G1",
+    company: "Unitree",
+    category: "Humanoid",
+    stage: "Commercial",
 
-  score: 8.8,
+    summary: "Unitree推出的低成本人形机器人，主打性价比和规模化。",
 
-  highlights: [
-    "与宝马合作",
-    "商业化路径清晰",
-    "AI模型能力领先"
-  ],
+    cover: "/robots/g1.jpg",
 
-  risks: [
-    "成本较高",
-    "依赖大客户验证"
-  ],
+    specs: {
+      height: "127 cm",
+      weight: "35 kg",
+      speed: "2 m/s"
+    },
 
-  competitors: ["Optimus", "Digit"],
+    scenarios: ["教育", "开发者", "轻工业"],
 
-  confidence: "medium"
-}
-{
-  slug: "unitree-g1",
-  name: "G1",
-  company: "Unitree",
-  category: "Humanoid",
-  stage: "Commercial",
+    score: 8.5,
 
-  summary: "Unitree推出的低成本人形机器人，强调性价比与规模化生产能力。",
+    highlights: [
+      "价格优势明显",
+      "量产能力强",
+      "供应链成熟"
+    ],
 
-  cover: "/robots/g1.jpg",
+    risks: [
+      "高端能力不足",
+      "应用场景受限"
+    ],
 
-  specs: {
-    height: "127 cm",
-    weight: "35 kg",
-    speed: "2 m/s"
+    competitors: ["Optimus", "Figure 02"],
+
+    confidence: "medium"
   },
 
-  scenarios: ["教育", "开发者", "轻工业"],
+  {
+    slug: "digit",
+    name: "Digit",
+    company: "Agility Robotics",
+    category: "Humanoid",
+    stage: "Commercial",
 
-  score: 8.5,
+    summary: "Digit是最接近商业化落地的人形机器人之一，已进入物流场景。",
 
-  highlights: [
-    "价格低",
-    "供应链成熟",
-    "快速迭代能力强"
-  ],
+    cover: "/robots/digit.jpg",
 
-  risks: [
-    "高端能力不足",
-    "应用场景有限"
-  ],
+    specs: {
+      height: "175 cm",
+      payload: "16 kg"
+    },
 
-  competitors: ["Optimus", "Figure 02"],
+    scenarios: ["仓储物流"],
 
-  confidence: "medium"
-}
-{
-  slug: "digit",
-  name: "Digit",
-  company: "Agility Robotics",
-  category: "Humanoid",
-  stage: "Commercial",
+    score: 8.9,
 
-  summary: "Digit是目前最接近商业化落地的人形机器人之一，已在物流仓储场景测试部署。",
+    highlights: [
+      "商业落地领先",
+      "场景清晰",
+      "稳定性强"
+    ],
 
-  cover: "/robots/digit.jpg",
+    risks: [
+      "泛化能力弱",
+      "扩展性有限"
+    ],
 
-  specs: {
-    height: "175 cm",
-    payload: "16 kg"
+    competitors: ["Figure 02", "Optimus"],
+
+    confidence: "high"
   },
 
-  scenarios: ["仓储物流"],
+  {
+    slug: "spot",
+    name: "Spot",
+    company: "Boston Dynamics",
+    category: "Quadruped",
+    stage: "Commercial",
 
-  score: 8.9,
+    summary: "Spot是全球最成熟的四足机器人之一，广泛应用于巡检与工业。",
 
-  highlights: [
-    "已商业部署",
-    "场景明确",
-    "稳定性较高"
-  ],
+    cover: "/robots/spot.jpg",
 
-  risks: [
-    "泛化能力弱",
-    "扩展性有限"
-  ],
+    specs: {
+      weight: "32 kg",
+      payload: "14 kg"
+    },
 
-  competitors: ["Figure 02", "Optimus"],
+    scenarios: ["巡检", "安防", "工业"],
 
-  confidence: "high"
-}
-{
-  slug: "spot",
-  name: "Spot",
-  company: "Boston Dynamics",
-  category: "Quadruped",
-  stage: "Commercial",
+    score: 9.0,
 
-  summary: "Spot是全球最成熟的四足机器人之一，广泛应用于巡检和工业场景。",
+    highlights: [
+      "成熟度极高",
+      "商业化成功",
+      "可靠性强"
+    ],
 
-  cover: "/robots/spot.jpg",
+    risks: [
+      "成本较高",
+      "AI能力有限"
+    ],
 
-  specs: {
-    weight: "32 kg",
-    payload: "14 kg"
+    competitors: ["ANYmal", "Unitree B2"],
+
+    confidence: "high"
   },
 
-  scenarios: ["巡检", "安防", "工业"],
+  {
+    slug: "anymal",
+    name: "ANYmal",
+    company: "ANYbotics",
+    category: "Quadruped",
+    stage: "Commercial",
 
-  score: 9.0,
+    summary: "ANYmal专注工业巡检，是欧洲工业机器人代表。",
 
-  highlights: [
-    "成熟度高",
-    "稳定可靠",
-    "商业化成功"
-  ],
+    cover: "/robots/anymal.jpg",
 
-  risks: [
-    "成本较高",
-    "AI能力有限"
-  ],
+    specs: {
+      weight: "50 kg"
+    },
 
-  competitors: ["ANYmal", "Unitree B2"],
+    scenarios: ["能源巡检", "工业"],
 
-  confidence: "high"
-}
-{
-  slug: "anymal",
-  name: "ANYmal",
-  company: "ANYbotics",
-  category: "Quadruped",
-  stage: "Commercial",
+    score: 8.7,
 
-  summary: "ANYmal专注工业巡检，是欧洲工业机器人代表之一。",
+    highlights: [
+      "工业客户多",
+      "稳定性高"
+    ],
 
-  cover: "/robots/anymal.jpg",
+    risks: [
+      "价格高",
+      "规模受限"
+    ],
 
-  specs: {
-    weight: "50 kg"
-  },
+    competitors: ["Spot"],
 
-  scenarios: ["能源巡检", "工业"],
+    confidence: "high"
+  }
 
-  score: 8.7,
-
-  highlights: [
-    "工业客户多",
-    "可靠性高"
-  ],
-
-  risks: [
-    "价格高",
-    "规模受限"
-  ],
-
-  competitors: ["Spot"],
-
-  confidence: "high"
-}
+];
