@@ -1,59 +1,56 @@
-import Link from "next/link"
-import { getFeaturedRobots, getAllNews } from "@/lib/queries"
-import { calcTotalScore } from "@/lib/rating"
-
 export default function HomePage() {
-  const featured = getFeaturedRobots()
-  const news = getAllNews()
-
   return (
-    <div className="page-wrap">
-      <section className="hero">
-        <div className="kicker">RobotHome v10</div>
-        <h1>机器人行业的投资决策平台</h1>
-        <p>评分模型 + 成本数据库 + 选型引擎 + AI 分析，帮助你从信息浏览走向可执行判断。</p>
-        <div className="hero-actions">
-          <Link href="/register" className="btn">免费开始</Link>
-          <Link href="/rankings" className="btn secondary">查看评分榜</Link>
-        </div>
-      </section>
+    <main style={{ padding: "40px", maxWidth: "1000px", margin: "0 auto" }}>
+      
+      {/* 标题区 */}
+      <h1 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "16px" }}>
+        全球机器人产业的投研与决策平台
+      </h1>
 
-      <section className="section">
-        <div className="grid grid-3">
-          <div className="card"><h3>投资评分系统</h3><p className="muted">技术、商业化、产业位置、成本、扩展性五维模型。</p></div>
-          <div className="card"><h3>选型决策引擎</h3><p className="muted">输入场景与预算，直接输出最匹配机器人。</p></div>
-          <div className="card"><h3>价格 / 成本数据库</h3><p className="muted">拆解 BOM 与毛利逻辑，判断降本空间。</p></div>
-        </div>
-      </section>
+      <p style={{ fontSize: "18px", color: "#555", marginBottom: "32px" }}>
+        覆盖 50+ 核心机器人与 30+ 公司，基于五维评分模型与成本拆解，
+        提供可执行的投资与选型判断
+      </p>
 
-      <section className="section">
-        <h2>评分精选</h2>
-        <div className="grid grid-4 robot-grid">
-          {featured.map((robot) => (
-            <div className="card" key={robot.id}>
-              <img src={robot.image} alt={robot.name} />
-              <h3>{robot.name}</h3>
-              <p className="muted">{robot.shortDescription}</p>
-              <div className="metric">{calcTotalScore(robot.rating)}</div>
-              <Link className="btn ghost" href={`/library/${robot.slug}`}>查看详情</Link>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 按钮区 */}
+      <div style={{ marginBottom: "40px" }}>
+        <a href="/rankings" style={{ marginRight: "20px", fontWeight: "bold" }}>
+          👉 查看评分榜
+        </a>
+        <a href="/selector" style={{ fontWeight: "bold" }}>
+          👉 开始选型
+        </a>
+      </div>
 
-      <section className="section">
-        <h2>最新内容</h2>
-        <div className="grid grid-2">
-          {news.map((item) => (
-            <div className="card" key={item.id}>
-              <img className="news-cover" src={item.cover} alt={item.title} />
-              <h3>{item.title}</h3>
-              <p className="muted">{item.summary}</p>
-              <Link className="btn ghost" href={`/news/${item.slug}`}>阅读全文</Link>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
-  )
+      {/* 核心能力 */}
+      <h2 style={{ fontSize: "24px", marginBottom: "16px" }}>核心能力</h2>
+
+      <ul style={{ marginBottom: "40px" }}>
+        <li>机器人评分系统（五维模型）</li>
+        <li>成本数据库（BOM 拆解）</li>
+        <li>选型引擎（场景匹配）</li>
+      </ul>
+
+      {/* 数据规模 */}
+      <h2 style={{ fontSize: "24px", marginBottom: "16px" }}>覆盖范围</h2>
+
+      <ul style={{ marginBottom: "40px" }}>
+        <li>50+ 机器人</li>
+        <li>30+ 公司</li>
+        <li>200+ 参数</li>
+        <li>100+ 成本拆解样本</li>
+      </ul>
+
+      {/* 推荐入口 */}
+      <h2 style={{ fontSize: "24px", marginBottom: "16px" }}>快速入口</h2>
+
+      <ul>
+        <li><a href="/rankings">评分榜</a></li>
+        <li><a href="/selector">选型工具</a></li>
+        <li><a href="/news">行业资讯</a></li>
+        <li><a href="/library">机器人库</a></li>
+      </ul>
+
+    </main>
+  );
 }
