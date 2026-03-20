@@ -1,5 +1,3 @@
-import type { Rating } from "@/data/robots"
-
 export function calcTotalScore(rating = {}) {
   return (
     (rating.tech ?? 0) +
